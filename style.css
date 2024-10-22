@@ -1,0 +1,233 @@
+/* Reset and Box Sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+main{
+    margin-top: 50px;
+}
+
+/* Styling for the Tic Tac Toe Heading */
+h1 {
+    font-family: 'Pacifico', cursive;
+    font-size: 4rem;
+    color: #ffffff;
+    background: linear-gradient(90deg, #ff6b6b, #f8e71c, #7ed56f);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+    text-shadow: 0 4px 6px rgba(0, 0, 0, 0.1),
+                 0 1px 3px rgba(0, 0, 0, 0.08);
+    margin-bottom: 30px;
+    letter-spacing: 4px;
+    animation: textGlow 2s ease-in-out infinite alternate;
+}
+
+/* Glowing Animation */
+@keyframes textGlow {
+    from {
+        text-shadow: 0 4px 10px rgba(255, 107, 107, 0.7),
+                     0 1px 3px rgba(0, 0, 0, 0.08);
+    }
+    to {
+        text-shadow: 0 4px 15px rgba(248, 231, 28, 0.9),
+                     0 1px 5px rgba(0, 0, 0, 0.12);
+    }
+}
+
+/* Container for the Game */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Game Board Styling */
+.game {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Individual Box Styling */
+.box {
+    height: 100px;
+    width: 100px;
+    border-radius: 10px;
+    border: none;
+    background: #ffffff;
+    color: #ff6b6b;
+    font-size: 2.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.box:hover {
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Choice Section Styling */
+.choice {
+    margin-top: 20px;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Buttons Styling */
+.choice button,
+.newGame {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+    background: #ff6b6b;
+    color: #fff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.choice button:hover,
+.newGame:hover {
+    background: #ff4757;
+    transform: translateY(-3px);
+}
+
+.choice button:focus,
+.newGame:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.5);
+}
+
+/* Message Container Styling */
+.msg-container {
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 20px;
+}
+.message{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#msg {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.hide {
+    display: none;
+}
+
+.newGame {
+    background: #ff6b6b;
+    color: #fff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.newGame:hover {
+    background: #ff4757;
+    transform: translateY(-3px);
+}
+
+/* Media Queries */
+
+/* For large desktops (width >= 1024px) */
+@media (min-width: 1024px) {
+    .game {
+        gap: 15px;
+    }
+
+    .box {
+        height: 120px;
+        width: 120px;
+        font-size: 3rem;
+    }
+
+    h1 {
+        font-size: 5rem;
+    }
+}
+
+/* For tablets (width >= 768px and < 1024px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .game {
+        gap: 12px;
+    }
+
+    .box {
+        height: 110px;
+        width: 110px;
+        font-size: 2.75rem;
+    }
+
+    main {
+        margin-top: -50px;
+    }
+
+    h1 {
+        font-size: 4.5rem;
+    }
+}
+
+/* For mobile devices (width < 768px) */
+@media (max-width: 767px) {
+    .game {
+        gap: 8px;
+    }
+
+    .box {
+        height: 80px;
+        width: 80px;
+        font-size: 2rem;
+    }
+
+    main {
+        margin-top: -90px;
+    }
+
+    h1 {
+        font-size: 3rem;
+    }
+
+    .choice button,
+    .newGame {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+}
